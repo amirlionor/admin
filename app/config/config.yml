@@ -156,7 +156,7 @@ sonata_user:
                     item_adds:            []
                     roles:                []
             blocks:
-                type:                 ~
+                type:                 []
                 settings:             []
                 id:                   []
                 position:             []

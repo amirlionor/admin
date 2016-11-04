@@ -34,7 +34,7 @@
         <div class="{% if has_center %}span4 col-lg-4{% else %}span6 col-lg-6{% endif %}">
             {% for block in blocks %}
                 {% if block.position == 'right' %}
-                    {{ sonata_block_render({ 'type': block.type, 'settings': block.settings}) }}
+                    {#{{ sonata_block_render({ 'type': block.type, 'settings': block.settings}) }}#}
                 {% endif %}
             {% endfor %}
         </div>
