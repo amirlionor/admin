@@ -92,11 +92,11 @@ class UserAdmin extends AbstractAdmin
             ->add('createdAt')
         ;
 
-        if ($this->isGranted('ROLE_ALLOWED_TO_SWITCH')) {
+        /*if ($this->isGranted('ROLE_ALLOWED_TO_SWITCH')) {
             $listMapper
                 ->add('impersonating', 'string', array('template' => 'SonataUserBundle:Admin:Field/impersonating.html.twig'))
             ;
-        }
+        }*/
     }
 
     /**
