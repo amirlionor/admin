@@ -4,11 +4,8 @@ imports:
     - { resource: services.yml }
     - { resource: "@AdministrationBundle/Resources/config/services.yml" }
     - { resource: "@SiteBundle/Resources/config/services.yml" }
-
-
 parameters:
     locale: en
-
 framework:
     #esi:             ~
     translator:      { fallbacks: ["%locale%"] }
@@ -30,11 +27,9 @@ framework:
         handler_id:  ~
     fragments:       ~
     http_method_override: true
-
 twig:
     debug:            "%kernel.debug%"
     strict_variables: "%kernel.debug%"
-
 doctrine:
     dbal:
         driver:   pdo_mysql
@@ -46,8 +41,6 @@ doctrine:
         charset:  UTF8
         types:
             json: Sonata\Doctrine\Types\JsonType
-
-
     orm:
         entity_managers:
             default:
@@ -57,17 +50,12 @@ doctrine:
                     FOSUserBundle: ~ 
                     
         auto_generate_proxy_classes: "%kernel.debug%"
-        
-
 swiftmailer:
     transport: "%mailer_transport%"
     host:      "%mailer_host%"
     username:  "%mailer_user%"
     password:  "%mailer_password%"
     spool:     { type: memory }
-    
-    
-    
 sonata_block:
     default_contexts: [cms]
     blocks:
@@ -81,24 +69,19 @@ sonata_block:
         sonata.block.service.text:
         sonata.block.service.action:
         sonata.block.service.rss:
-        
         # Some specific block from the SonataMediaBundle
         sonata.media.block.media:
         sonata.media.block.gallery:
         sonata.media.block.feature_media:
-            
 fos_user:
     db_driver:      orm 
     firewall_name:  main
     user_class:     Application\Sonata\UserBundle\Entity\User
-
     group:
         group_class:   Application\Sonata\UserBundle\Entity\Group
         group_manager: sonata.user.orm.group_manager                  
-
     service:
         user_manager: sonata.user.orm.user_manager                      
-    
     profile:
         form:
             type:               fos_user_profile
@@ -120,32 +103,24 @@ sonata_admin:
             - { position: left, type: sonata.admin.block.admin_list }            
 sonata_user:
     security_acl:           false
-
     manager_type: orm 
-
     table:
         user_group: "my_custom_user_group_association_table_name"
-    
- 
     impersonating:
         route:                page_slug
         parameters:           { path: / }
-
     class:                  # Entity Classes
         user:               Application\Sonata\UserBundle\Entity\User
         group:              Application\Sonata\UserBundle\Entity\Group
-
     admin:                  # Admin Classes
         user:
             class:          Sonata\UserBundle\Admin\Entity\UserAdmin
             controller:     SonataAdminBundle:CRUD
             translation:    SonataUserBundle
-
         group:
             class:          Sonata\UserBundle\Admin\Entity\GroupAdmin
             controller:     SonataAdminBundle:CRUD
             translation:    SonataUserBundle
-
     profile:
         default_avatar: 'bundles/sonatauser/default_avatar.png' 
         dashboard:

@@ -1,3 +1,15 @@
 administration_homepage:
-    path:     /
-    defaults: { _controller: AdministrationBundle:Default:index }
+    path:     /login
+    defaults: { _controller: AdministrationBundle:AdminSecurity:login }
+    
+administration_login_checkAction:
+    path:     /login_check
+    defaults: { _controller: AdministrationBundle:AdminSecurity:check }
+    
+administration_login_logout:
+    path:     /logout
+    defaults: { _controller: AdministrationBundle:AdminSecurity:logout }
+
+administration_dashboard:
+    path:     /dashboard
+    defaults: { _controller: AdministrationBundle:Core:dashboard }

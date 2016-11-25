@@ -32,7 +32,24 @@ security:
         dev:
             pattern: ^/(_(profiler|wdt)|css|images|js)/
             security: false
-        
+        admin:
+            pattern:            ^/administration/
+            context:            user
+            provider:   in_memory
+            form_login:
+                provider:       fos_userbundle
+                login_path:     /administration/login
+                use_forward:    false
+                #use_referer: true
+                check_path:     /administration/login_check
+                failure_path:   null
+                csrf_provider:  form.csrf_provider
+                default_target_path: /administration/dashboard
+            #logout:         true
+            logout:
+               path:           /administration/logout
+               target:          /administration/login
+            anonymous:    true
         main:
             anonymous: ~
             pattern:             .*
@@ -51,24 +68,12 @@ security:
                 path:           fos_user_security_logout
                 target:         /login
             anonymous:      true
-            
-        admin:
-            pattern:            /admin(.*)
-            context:            user
-            form_login:
-                provider:       fos_userbundle
-                login_path:     /admin/login
-                use_forward:    false
-                #use_referer: true
-                check_path:     /admin/login_check
-                failure_path:   null
-                csrf_provider:  form.csrf_provider
-                default_target_path: /admin/dashboard
-            #logout:         true
-            logout:
-               path:           /admin/logout
-              # target:          /admin/login
-            anonymous:    true
+        login:
+
+            pattern:  admin/login
+            security: false
+        
+      
             
     encoders:
         FOS\UserBundle\Model\UserInterface: sha512
