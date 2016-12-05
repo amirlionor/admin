@@ -1,8 +1,5 @@
 <?php
-
-
 namespace AdministrationBundle\Controller;
-
 use Sonata\AdminBundle\Admin\AdminInterface;
 use Sonata\AdminBundle\Admin\Pool;
 use Sonata\AdminBundle\Search\SearchHandler;
@@ -11,7 +8,6 @@ use Symfony\Component\DependencyInjection\Exception\ServiceNotFoundException;
 use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
-
 /**
  * Class CoreController.
  *
@@ -43,9 +39,16 @@ class CoreController extends Controller
         if (!$this->getRequest()->isXmlHttpRequest()) {
             $parameters['breadcrumbs_builder'] = $this->get('sonata.admin.breadcrumbs_builder');
         }
-        return $this->render($this->getAdminPool()->getTemplate('dashboard'), $parameters);
+        
+        //dump($parameters);
+        //die();
+        
+        
+       // return $this->render($this->getAdminPool()->getTemplate('dashboard'), $parameters);
+        return $this->render('AdministrationBundle:Dashboard:Dashboard.html.twig', $parameters);
     }
 
+    
     /**
      * @param Request $request
      * @return JsonResponse|Response
