@@ -206,13 +206,14 @@
                       
                             
                             
-                    <ul id="main-menu" class="main-menu">
+                    <ul id="main-menu" class="main-menu" style="">
                         
                         
                         
                        
                          {% block sonata_left_side %}
-                        {% block sonata_side_nav %}
+                           {% block sonata_side_nav %}
+                               
                             {% block sonata_sidebar_search %}
                                 <form action="{{ path('sonata_admin_search') }}" method="GET" class="sidebar-form" role="search">
                                     <div class="input-group custom-search-form">
@@ -228,23 +229,26 @@
                                    
                             {% block side_bar_before_nav %} 
                             {% endblock %}
+                            
                                {% block side_bar_nav %}
                                 <li class="opened">
                                 {{ knp_menu_render('sonata_admin_sidebar', {template: sonata_admin.adminPool.getTemplate('knp_menu_template')}) }}
-                                 </li>
-                                {% endblock side_bar_nav %}    
+                                </li>
+                                {% endblock side_bar_nav %}   
+                                
                             {% block side_bar_after_nav %}
                             {% endblock %}
+                            
                         {% endblock sonata_side_nav %}
                        {% endblock sonata_left_side %}
  
                        
                         
                         
+                    </ul>
+                        <ul id="main-menu" class="main-menu">
                         
-                        
-                        
-                        <li >
+                        <li>
                             <a href="dashboard-1.html">
                                 <i class="linecons-cog"></i>
                                 <span class="title">Dashboard</span>
