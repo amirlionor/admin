@@ -200,17 +200,18 @@
                             </a>
                         </div>
                     </header>
+                            
+                            
+               
+                      
+                            
+                            
                     <ul id="main-menu" class="main-menu">
                         
                         
                         
-                        
-                        
-                        
-                        
-                          {% block sonata_left_side %}
-                <aside class="main-sidebar">
-                    <section class="sidebar">
+                       
+                         {% block sonata_left_side %}
                         {% block sonata_side_nav %}
                             {% block sonata_sidebar_search %}
                                 <form action="{{ path('sonata_admin_search') }}" method="GET" class="sidebar-form" role="search">
@@ -224,49 +225,26 @@
                                     </div>
                                 </form>
                             {% endblock sonata_sidebar_search %}
-
-                            {% block side_bar_before_nav %} {% endblock %}
-                            {% block side_bar_nav %}
+                                   
+                            {% block side_bar_before_nav %} 
+                            {% endblock %}
+                               {% block side_bar_nav %}
+                                <li class="opened">
                                 {{ knp_menu_render('sonata_admin_sidebar', {template: sonata_admin.adminPool.getTemplate('knp_menu_template')}) }}
-                            {% endblock side_bar_nav %}
+                                 </li>
+                                {% endblock side_bar_nav %}    
                             {% block side_bar_after_nav %}
-                               {# <p class="text-center small" style="border-top: 1px solid #444444; padding-top: 10px">
-                                    {% block side_bar_after_nav_content %}
-                                        <a href="https://sonata-project.org" rel="noreferrer" target="_blank">sonata project</a>
-                                    {% endblock %}
-                                </p>#}
                             {% endblock %}
                         {% endblock sonata_side_nav %}
-                    </section>
-                </aside>
-            {% endblock sonata_left_side %}
+                       {% endblock sonata_left_side %}
+ 
+                       
                         
                         
                         
                         
                         
-                        
-                        
-                        
-                        
-                        
-                        
-                        
-                        
-                        
-                        
-                        
-                        
-                        
-                        
-                        
-                        
-                        
-                        
-                        
-                        
-                        
-                        <li class="active opened active">
+                        <li >
                             <a href="dashboard-1.html">
                                 <i class="linecons-cog"></i>
                                 <span class="title">Dashboard</span>
