@@ -206,7 +206,7 @@
                       
                             
                             
-                    <ul id="main-menu" class="main-menu" style="">
+                  <ul id="main-menu" class="main-menu" >
                         
                         
                         
@@ -215,6 +215,7 @@
                            {% block sonata_side_nav %}
                                
                             {% block sonata_sidebar_search %}
+                                <li>
                                 <form action="{{ path('sonata_admin_search') }}" method="GET" class="sidebar-form" role="search">
                                     <div class="input-group custom-search-form">
                                         <input type="text" name="q" value="{{ app.request.get('q') }}" class="form-control" placeholder="{{ 'search_placeholder'|trans({}, 'SonataAdminBundle') }}">
@@ -225,6 +226,7 @@
                                             </span>
                                     </div>
                                 </form>
+                                </li>
                             {% endblock sonata_sidebar_search %}
                                    
                             {% block side_bar_before_nav %} 
@@ -1076,7 +1078,27 @@
                                 <i class="fa-comments-o"></i>
                             </a>
                         </li>
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
                     </ul>
+                                        
+                                        
+                                        
+                                        
+                        
+                           
+                                    
+                                        
+                       
+                                        
+                                        
+                                        
                 </nav>
                 <script type="text/javascript">
                     jQuery(document).ready(function ($)
