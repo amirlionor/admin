@@ -56,9 +56,7 @@
         {% endblock %}
         
          </title>
-        
          {#{% endblock %}#}
-         
           {% block scripthead %}
         <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Arimo:400,700,400italic">
         <link rel="stylesheet" href="{{ asset('bundles/administration/assets/css/fonts/linecons/css/linecons.css')}}">
@@ -70,6 +68,11 @@
         <link rel="stylesheet" href="{{ asset('bundles/administration/assets/css/xenon-skins.css')}}">
         <link rel="stylesheet" href="{{ asset('bundles/administration/assets/css/custom.css')}}">
         <script src="{{ asset('bundles/administration/assets/js/jquery-1.11.1.min.js')}}"></script>
+        <style>
+            .fa-angle-left:before{
+                display: none;
+            }
+        </style>
         {% endblock %}
         
     </head>
@@ -201,19 +204,10 @@
                         </div>
                     </header>
                             
-                            
-               
-                      
-                            
-                            
+   
                   <ul id="main-menu" class="main-menu" >
-                        
-                        
-                        
-                       
                          {% block sonata_left_side %}
-                           {% block sonata_side_nav %}
-                               
+                           {% block sonata_side_nav %}      
                             {% block sonata_sidebar_search %}
                                 <li>
                                 <form action="{{ path('sonata_admin_search') }}" method="GET" class="sidebar-form" role="search">
@@ -226,29 +220,119 @@
                                             </span>
                                     </div>
                                 </form>
+                                            <br><br>     
+                                       
                                 </li>
-                            {% endblock sonata_sidebar_search %}
-                                   
+                            {% endblock sonata_sidebar_search %}                                  
                             {% block side_bar_before_nav %} 
-                            {% endblock %}
-                            
+                            {% endblock %}                           
                                {% block side_bar_nav %}
                                 <li class="opened">
                                 {{ knp_menu_render('sonata_admin_sidebar', {template: sonata_admin.adminPool.getTemplate('knp_menu_template')}) }}
                                 </li>
-                                {% endblock side_bar_nav %}   
-                                
+                                {% endblock side_bar_nav %}                                 
                             {% block side_bar_after_nav %}
-                            {% endblock %}
-                            
+                            {% endblock %}                            
                         {% endblock sonata_side_nav %}
-                       {% endblock sonata_left_side %}
- 
-                       
-                        
-                        
+                       {% endblock sonata_left_side %}   
                     </ul>
-                        <ul id="main-menu" class="main-menu">
+                    
+                    <ul id="main-menu" class="main-menu menu-statique">
+                        
+                         <li>
+                            <a href="#">
+                                <i class="linecons-desktop"></i>
+                                <span class="title">Réalisation & services </span>
+                            </a>  
+                        </li>
+                        
+                        <li>
+                            <a href="#">
+                                <i class="fa fa-shopping-cart"></i>
+                                <span class="title">Produits </span>
+                            </a>  
+                        </li>
+                         <li>
+                            <a href="#">
+                                <i class="linecons-globe"></i>
+                                <span class="title">Mailing </span>
+                            </a>  
+                        </li>
+                        
+                        <li>
+                            <a href="#">
+                                <i class="linecons-mail"></i>
+                                <span class="title">Mailbox</span>
+                                <span class="label label-success pull-right">5</span>
+                            </a>
+                            <ul>
+                                <li>
+                                    <a href="mailbox-main.html">
+                                        <span class="title">Inbox</span>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="mailbox-compose.html">
+                                        <span class="title">Compose Message</span>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="mailbox-message.html">
+                                        <span class="title">View Message</span>
+                                    </a>
+                                </li>
+                            </ul>
+                        </li>
+                        
+                        
+                        
+                         <li>
+                            <a href="#">
+                                <i class="linecons-cog"></i>
+                                <span class="title">Evenement</span>
+                            </a>  
+                        </li>
+                         <li>
+                            <a href="#">
+                                <i class="fa fa-bar-chart"></i>
+                                <span class="title">Statistiques</span>
+                            </a>  
+                        </li>
+                        
+                        <li>
+                            <a href="#">
+                                <i class="fa fa-money"></i>
+                                <span class="title">Facturation</span>
+                            </a>  
+                        </li>
+                        
+                          <li>
+                            <a href="#">
+                                <i class="fa fa-wrench"></i>
+                                <span class="title">Paramétres</span>
+                            </a>  
+                        </li>
+                        
+                        
+                          <li>
+                            <a href="#">
+                                <i class="fa fa-file-archive-o"></i>
+                                <span class="title">Archives</span>
+                            </a>  
+                        </li>
+                        
+                        
+                          <li>
+                            <a href="#">
+                                <i class="fa fa-list-alt"></i>
+                                <span class="title">Support</span>
+                            </a>  
+                        </li>
+                    </ul>
+                    
+                    
+                    
+                        {#<<ul id="main-menu" class="main-menu">
                         
                         <li>
                             <a href="dashboard-1.html">
@@ -425,30 +509,7 @@
                                 <span class="title">Widgets</span>
                             </a>
                         </li>
-                        <li>
-                            <a href="mailbox-main.html">
-                                <i class="linecons-mail"></i>
-                                <span class="title">Mailbox</span>
-                                <span class="label label-success pull-right">5</span>
-                            </a>
-                            <ul>
-                                <li>
-                                    <a href="mailbox-main.html">
-                                        <span class="title">Inbox</span>
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="mailbox-compose.html">
-                                        <span class="title">Compose Message</span>
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="mailbox-message.html">
-                                        <span class="title">View Message</span>
-                                    </a>
-                                </li>
-                            </ul>
-                        </li>
+                        
                         <li>
                             <a href="tables-basic.html">
                                 <i class="linecons-database"></i>
@@ -790,7 +851,7 @@
                                 </li>
                             </ul>
                         </li>
-                    </ul>
+                    </ul>#}
                 </div>
             </div>
             
@@ -1077,28 +1138,8 @@
                             <a href="#" data-toggle="chat">
                                 <i class="fa-comments-o"></i>
                             </a>
-                        </li>
-                        
-                        
-                        
-                        
-                        
-                        
-                        
-                        
-                    </ul>
-                                        
-                                        
-                                        
-                                        
-                        
-                           
-                                    
-                                        
-                       
-                                        
-                                        
-                                        
+                        </li>                      
+                    </ul>                                
                 </nav>
                 <script type="text/javascript">
                     jQuery(document).ready(function ($)
