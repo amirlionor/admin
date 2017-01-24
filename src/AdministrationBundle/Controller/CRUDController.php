@@ -9,7 +9,7 @@
  * file that was distributed with this source code.
  */
 
-namespace Sonata\AdminBundle\Controller;
+namespace AdministrationBundle\Controller;
 
 use Doctrine\Common\Inflector\Inflector;
 use Psr\Log\LoggerInterface;
@@ -88,6 +88,10 @@ class CRUDController extends Controller
      */
     public function listAction()
     {
+//        dump("amir test list Administration Bundle ");
+//        die;
+
+
         $request = $this->getRequest();
 
         $this->admin->checkAccess('list');
@@ -107,10 +111,12 @@ class CRUDController extends Controller
         // set the theme for the current Admin Form
         $this->get('twig')->getExtension('form')->renderer->setTheme($formView, $this->admin->getFilterTheme());
 
-        
-        
-        
-        return $this->render($this->admin->getTemplate('list'), array(
+
+
+        dump($formView,$datagrid);
+        die;
+
+        return $this->render("AdministrationBundle::layout_sonata.html.twig", array(
             'action' => 'list',
             'form' => $formView,
             'datagrid' => $datagrid,

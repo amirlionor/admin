@@ -86,6 +86,8 @@ class UserController
      */
     public function getUsersAction(ParamFetcherInterface $paramFetcher)
     {
+       
+        
         $supporedCriteria = array(
             'enabled' => '',
             'locked' => '',

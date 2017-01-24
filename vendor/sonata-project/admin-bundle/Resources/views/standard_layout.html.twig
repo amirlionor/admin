@@ -231,7 +231,6 @@ file that was distributed with this source code.
                                     </div>
                                 </form>
                             {% endblock sonata_sidebar_search %}
-
                             {% block side_bar_before_nav %} {% endblock %}
                             {% block side_bar_nav %}
                                 {{ knp_menu_render('sonata_admin_sidebar', {template: sonata_admin.adminPool.getTemplate('knp_menu_template')}) }}
@@ -341,7 +340,7 @@ file that was distributed with this source code.
                                 <div class="row">
                                     {{ _list_table|raw }}
                                 </div>
-
+                                
                             {% endif %}
                         {% endblock sonata_admin_content %}
                     </section>
@@ -349,7 +348,6 @@ file that was distributed with this source code.
             </div>
         {% endblock sonata_wrapper %}
     </div>
-
     {% if sonata_admin.adminPool.getOption('use_bootlint') %}
         {% block bootlint %}
             {# Bootlint - https://github.com/twbs/bootlint#in-the-browser #}

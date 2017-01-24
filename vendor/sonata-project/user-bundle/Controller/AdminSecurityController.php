@@ -29,7 +29,7 @@ class AdminSecurityController extends Controller
      * @return Response|RedirectResponse
      */
     public function loginAction(Request $request = null)
-    {
+    { 
         $request = $request === null ? $request = $this->get('request') : $request;
 
         $user = $this->getUser();
@@ -105,7 +105,7 @@ class AdminSecurityController extends Controller
 
     public function checkAction()
     {
-        throw new \RuntimeException('You must configure the check path to be handled by the firewall using form_login in your security firewall configuration.');
+       throw new \RuntimeException('You must configure the check path to be handled by the firewall using form_login in your security firewall configuration.');      
     }
 
     public function logoutAction()

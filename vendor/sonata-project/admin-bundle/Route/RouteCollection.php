@@ -94,7 +94,7 @@ class RouteCollection
             $pattern, $defaults, $requirements, $options, $host, $schemes, $methods, $condition) {
             return new Route($pattern, $defaults, $requirements, $options, $host, $schemes, $methods, $condition);
         };
-
+        
         return $this;
     }
 

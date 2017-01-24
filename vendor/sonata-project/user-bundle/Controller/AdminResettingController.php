@@ -27,6 +27,11 @@ class AdminResettingController extends ResettingController
      */
     public function requestAction()
     {
+        
+        dump('requestAction');
+        die();
+        
+        
         if ($this->container->get('security.context')->isGranted('IS_AUTHENTICATED_FULLY')) {
             return new RedirectResponse($this->container->get('router')->generate('sonata_admin_dashboard'));
         }
