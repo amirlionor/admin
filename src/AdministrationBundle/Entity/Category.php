@@ -3,6 +3,8 @@
 namespace AdministrationBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use AdministrationBundle\Entity\Famille;
+use Doctrine\Common\Collections\ArrayCollection;
 
 /**
  * Category
@@ -34,6 +36,17 @@ class Category
      * @ORM\Column(name="designation", type="string", length=255, nullable=true)
      */
     private $designation;
+
+
+
+    /**
+     * @var ArrayCollection $famille
+     *
+     * @ORM\OneToMany(targetEntity="Famille",mappedBy="category",cascade={"persist","remove","merge"})
+     */
+    private $famille;
+
+
 
 
     /**
@@ -91,4 +104,14 @@ class Category
     {
         return $this->designation;
     }
+
+
+    /**
+     * @return ArrayCollection $famille
+     */
+    public function getFamilles() {
+        return $this->famille;
+    }
+
+
 }

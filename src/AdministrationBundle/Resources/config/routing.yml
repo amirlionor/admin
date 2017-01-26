@@ -13,3 +13,7 @@ administration_login_logout:
 administration_dashboard:
     path:     /dashboard
     defaults: { _controller: AdministrationBundle:Core:dashboard }
+
+administration_famille:
+    path:     /familles
+    defaults: { _controller: AdministrationBundle:famille:index }

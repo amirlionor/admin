@@ -1,0 +1,28 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h1>Famille</h1>
+
+    <table>
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ famille.id }}</td>
+            </tr>
+            <tr>
+                <th>Code</th>
+                <td>{{ famille.code }}</td>
+            </tr>
+            <tr>
+                <th>Designation</th>
+                <td>{{ famille.designation }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <ul>
+        <li>
+            <a href="{{ path('famille_index') }}">Back to the list</a>
+        </li>
+    </ul>
+{% endblock %}

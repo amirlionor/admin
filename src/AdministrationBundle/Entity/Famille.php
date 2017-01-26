@@ -3,7 +3,7 @@
 namespace AdministrationBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
-
+use AdministrationBundle\Entity\Category;
 /**
  * Famille
  *
@@ -37,9 +37,12 @@ class Famille
     private $designation;
 
     /**
-     * @var int
+     * @var  Category $category
      *
-     * @ORM\Column(name="category", type="integer")
+     * @ORM\ManyToOne(targetEntity="Category" , inversedBy="famille" ,cascade={"persist","merge"})
+     * @ORM\JoinColumns ({
+     * @ORM\JoinColumn(name="category_id", referencedColumnName="id")
+     * })
      */
     private $category;
 
@@ -103,8 +106,8 @@ class Famille
     /**
      * Set category
      *
-     * @param integer $category
-     * @return Famille
+     * @param Category $category
+     * @return famille
      */
     public function setCategory($category)
     {
@@ -116,7 +119,7 @@ class Famille
     /**
      * Get category
      *
-     * @return integer 
+     * @return Category $category
      */
     public function getCategory()
     {

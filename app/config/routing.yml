@@ -1,3 +1,11 @@
+administration_category:
+    resource: "@AdministrationBundle/Controller/CategoryController.php"
+    type:     annotation
+
+administration_famille:
+    resource: "@AdministrationBundle/Controller/FamilleController.php"
+    type:     annotation
+
 site:
     resource: "@SiteBundle/Resources/config/routing.yml"
     prefix:   /
