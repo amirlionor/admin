@@ -4,6 +4,9 @@ namespace AdministrationBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
 
+use AdministrationBundle\Entity\Famille;
+use AdministrationBundle\Entity\cart;
+use Doctrine\Common\Collections\ArrayCollection;
 /**
  * Produit
  *
@@ -36,11 +39,31 @@ class Produit
     private $designation;
 
     /**
-     * @var string
+     * @var Famille $famille
      *
-     * @ORM\Column(name="famille", type="string", length=255)
+     * @ORM\ManyToOne(targetEntity="Famille",inversedBy="produits",cascade={"persist","merge","remove"})
+     * @ORM\JoinColumns({
+     * @ORM\JoinColumn(name="famille_id",referencedColumnName="id")
+     *     })
      */
     private $famille;
+
+
+
+
+    /** @var ArrayCollection $cartes
+     *
+     * @ORM\ManyToMany(targetEntity="cart" ,mappedBy="produits" , cascade={"merge","persist","remove"})
+     *
+     */
+
+
+    private $cartes;
+
+
+
+
+
 
 
     /**
@@ -102,7 +125,7 @@ class Produit
     /**
      * Set famille
      *
-     * @param string $famille
+     * @param Famille $famille
      * @return Produit
      */
     public function setFamille($famille)
@@ -115,7 +138,7 @@ class Produit
     /**
      * Get famille
      *
-     * @return string 
+     * @return Famille
      */
     public function getFamille()
     {

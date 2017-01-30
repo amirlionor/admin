@@ -2,8 +2,10 @@
 
 namespace AdministrationBundle\Entity;
 
+use Application\Sonata\UserBundle\Entity\User;
+use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\ORM\Mapping as ORM;
-
+use AdministrationBundle\Entity\Produit;
 /**
  * cart
  *
@@ -28,12 +30,32 @@ class cart
      */
     private $date;
 
-    /**
-     * @var int
+
+    /** @var User $customer
      *
-     * @ORM\Column(name="customer", type="integer")
+     * @ORM\ManyToOne(targetEntity="Application\Sonata\UserBundle\Entity\User",inversedBy="carts")
+     * @ORM\JoinColumns({
+     * @ORM\JoinColumn(name="costumer_id",referencedColumnName="id")
+     *})
+     *
      */
     private $customer;
+
+
+
+   /** @var ArrayCollection $produits
+    *
+    * @ORM\ManyToMany(targetEntity="Produit" ,inversedBy="carts" ,cascade={"persist", "merge","remove"})
+    * @ORM\JoinTable(name="cart_produit",joinColumns={ @ORM\JoinColumn(name="carte_id",referencedColumnName="id")},inverseJoinColumns={ @ORM\JoinColumn(name="produit_id",referencedColumnName="id")}
+    *
+    *)
+    *
+    */
+
+
+    private $produits;
+
+
 
 
     /**
@@ -72,7 +94,7 @@ class cart
     /**
      * Set customer
      *
-     * @param integer $customer
+     * @param User $customer
      * @return cart
      */
     public function setCustomer($customer)

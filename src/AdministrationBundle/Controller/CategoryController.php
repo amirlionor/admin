@@ -26,16 +26,8 @@ class CategoryController extends Controller
 
         $categories = $em->getRepository('AdministrationBundle:Category')->findAll();
 
-
-
-
-
-        foreach ($categories as $category) {
-            foreach ($category->getFamilles() as $famille) {
-                dump($famille->getCode());
-            }
-        }
-        die();
+        dump($categories);
+        die;
 
 
         return $this->render('category/index.html.twig', array(

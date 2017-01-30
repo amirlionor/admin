@@ -19,16 +19,15 @@ class FamilleController extends Controller
      *
      * @Route("/", name="famille_index")
      * @Method("GET")
-     *
      */
     public function indexAction()
     {
         $em = $this->getDoctrine()->getManager();
 
         $familles = $em->getRepository('AdministrationBundle:Famille')->findAll();
-        foreach ($familles as $famille) {
-            dump($famille->getCategory()->getCode());
-        }
+
+
+        dump($familles);
         die;
 
         return $this->render('famille/index.html.twig', array(
@@ -41,11 +40,9 @@ class FamilleController extends Controller
      *
      * @Route("/{id}", name="famille_show")
      * @Method("GET")
-     *
      */
     public function showAction(Famille $famille)
     {
-
 
         return $this->render('famille/show.html.twig', array(
             'famille' => $famille,

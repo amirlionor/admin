@@ -16,4 +16,8 @@ administration_dashboard:
 
 administration_famille:
     path:     /familles
-    defaults: { _controller: AdministrationBundle:famille:index }
+    defaults: { _controller: AdministrationBundle:Famille:index }
+
+administration_produits:
+    path:     /produits
+    defaults: { _controller: AdministrationBundle:Produit:index }

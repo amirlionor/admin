@@ -1,3 +1,11 @@
+application_sonata_user_user:
+    resource: "@ApplicationSonataUserBundle/Controller/UserController.php"
+    type:     annotation
+
+application_sonata_user_group:
+    resource: "@ApplicationSonataUserBundle/Controller/GroupController.php"
+    type:     annotation
+
 administration_category:
     resource: "@AdministrationBundle/Controller/CategoryController.php"
     type:     annotation
@@ -5,6 +13,20 @@ administration_category:
 administration_famille:
     resource: "@AdministrationBundle/Controller/FamilleController.php"
     type:     annotation
+
+administration_produit:
+    resource: "@AdministrationBundle/Controller/ProduitController.php"
+    type:     annotation
+
+administration_cart:
+    resource: "@AdministrationBundle/Controller/cartController.php"
+    type:     annotation
+
+application_sonata_user_user:
+    resource: "@ApplicationSonataUserBundle/Controller/UserController.php"
+    type:     annotation
+
+
 
 site:
     resource: "@SiteBundle/Resources/config/routing.yml"

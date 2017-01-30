@@ -4,6 +4,7 @@ namespace AdministrationBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
 use AdministrationBundle\Entity\Category;
+use Doctrine\Common\Collections\ArrayCollection;
 /**
  * Famille
  *
@@ -45,6 +46,18 @@ class Famille
      * })
      */
     private $category;
+
+
+    /**
+     * @var ArrayCollection $produits
+     *
+     * @ORM\OneToMany(targetEntity="Produit", mappedBy="famille" ,cascade={"persist","merge"})
+     *
+     */
+
+
+
+    private $produits;
 
 
     /**
