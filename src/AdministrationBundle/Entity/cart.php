@@ -6,6 +6,7 @@ use Application\Sonata\UserBundle\Entity\User;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\ORM\Mapping as ORM;
 use AdministrationBundle\Entity\Produit;
+
 /**
  * cart
  *

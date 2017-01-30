@@ -26,6 +26,8 @@ class cartController extends Controller
 
         $carts = $em->getRepository('AdministrationBundle:cart')->findAll();
 
+        dump($carts);
+        die();
 
 
         return $this->render('cart/index.html.twig', array(
