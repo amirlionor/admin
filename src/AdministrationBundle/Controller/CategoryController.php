@@ -26,11 +26,7 @@ class CategoryController extends Controller
 
         $categories = $em->getRepository('AdministrationBundle:Category')->findAll();
 
-        dump($categories);
-        die;
-
-
-        return $this->render('category/index.html.twig', array(
+        return $this->render('AdministrationBundle:Category:list.html.twig', array(
             'categories' => $categories,
         ));
     }
@@ -44,8 +40,42 @@ class CategoryController extends Controller
     public function showAction(Category $category)
     {
 
-        return $this->render('category/show.html.twig', array(
+        return $this->render('AdministrationBundle:Category:modifier.html.twig', array(
             'category' => $category,
         ));
     }
+
+
+    /**
+     * @Route("/", name="category_add")
+     * @Method("GET")
+     */
+    public function AddAction()
+    {
+        return $this->render('AdministrationBundle:Category:add.html.twig');
+    }
+
+    /**
+     * @Route("/", name="category_remove")
+     * @Method("GET")
+     */
+    public function removeAction()
+    {
+        return $this->render('AdministrationBundle:Category:list.html.twig');
+    }
+
+
+    /**
+     * @Route("/{id}", name="category_modifier")
+     * @Method("GET")
+     */
+    public function ModifierAction(Category $produit)
+    {
+
+        return $this->render('AdministrationBundle:Category:add.html.twig', array(
+            'produit' => $produit,
+        ));
+    }
+
+
 }

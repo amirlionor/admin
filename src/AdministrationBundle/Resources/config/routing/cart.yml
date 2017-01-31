@@ -1,0 +1,3 @@
+administration_cart:
+    resource: "@AdministrationBundle/Controller/cartController.php"
+    type:     annotation

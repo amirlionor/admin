@@ -1,0 +1,3 @@
+administration_category:
+    resource: "@AdministrationBundle/Controller/CategoryController.php"
+    type:     annotation

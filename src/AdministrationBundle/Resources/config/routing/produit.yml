@@ -1,0 +1,3 @@
+administration_produit:
+    resource: "@AdministrationBundle/Controller/ProduitController.php"
+    type:     annotation

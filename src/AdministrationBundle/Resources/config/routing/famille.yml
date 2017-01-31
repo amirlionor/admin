@@ -1,0 +1,3 @@
+administration_famille:
+    resource: "@AdministrationBundle/Controller/FamilleController.php"
+    type:     annotation

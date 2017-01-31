@@ -27,17 +27,6 @@ class UserController extends Controller
 
         $users = $em->getRepository('ApplicationSonataUserBundle:User')->findAll();
 
-
-//        /* @var User $user */
-//        foreach ($users as $user){
-//            foreach ($user->getCarts() as $cart){
-//                dump($cart);
-//            }
-//
-//        }
-//        die;
-
-
         return $this->render('user/index.html.twig', array(
             'users' => $users,
         ));

@@ -27,9 +27,6 @@ class FamilleController extends Controller
         $familles = $em->getRepository('AdministrationBundle:Famille')->findAll();
 
 
-        dump($familles);
-        die;
-
         return $this->render('famille/index.html.twig', array(
             'familles' => $familles,
         ));
@@ -48,4 +45,39 @@ class FamilleController extends Controller
             'famille' => $famille,
         ));
     }
+
+
+
+    /**
+     * @Route("/", name="famille_add")
+     * @Method("GET")
+     */
+    public function AddAction()
+    {
+        return $this->render('AdministrationBundle:Famille:add.html.twig');
+    }
+
+    /**
+     * @Route("/", name="famille_remove")
+     * @Method("GET")
+     */
+    public function removeAction()
+    {
+        return $this->render('AdministrationBundle:Famille:list.html.twig');
+    }
+
+
+    /**
+     * @Route("/{id}", name="famille_modifier")
+     * @Method("GET")
+     */
+    public function ModifierAction(Famille $produit)
+    {
+
+        return $this->render('AdministrationBundle:Famille:add.html.twig', array(
+            'produit' => $produit,
+        ));
+    }
+
+
 }

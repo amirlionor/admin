@@ -300,6 +300,25 @@
                             <i class="fa fa-shopping-cart"></i>
                             <span class="title">Produits </span>
                         </a>
+
+                        <ul>
+                            <li>
+                                <a href="{{ path('category_index') }}">
+                                        <span class="title">Categories</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="{{ path('famille_index') }}">
+                                    <span class="title">Familles</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="{{ path('produit_index') }}">
+                                    <span class="title">Produits</span>
+                                </a>
+                            </li>
+                        </ul>
+
                     </li>
                     <li>
                         <a href="#">
@@ -1174,236 +1193,21 @@
 
         {% block sonata_wrapper %}
 
-        <div class="content-wrapper">
-            {% block sonata_page_content %}
-                <section class="content-header">
 
-                    {% block sonata_page_content_header %}
-                        {% block sonata_page_content_nav %}
-                            {% if _tab_menu is not empty or _actions is not empty or _list_filters_actions is not empty %}
-                                <nav class="navbar navbar-default" role="navigation">
-                                    <div class="container-fluid">
-                                        {% block tab_menu_navbar_header %}
-                                            {% if _navbar_title is not empty %}
-                                                <div class="navbar-header">
-                                                    <a class="navbar-brand" href="#">{{ _navbar_title|raw }}</a>
-                                                </div>
-                                            {% endif %}
-                                        {% endblock %}
-
-                                        <div class="navbar-collapse">
-                                            <div class="navbar-left">
-                                                {% if _tab_menu is not empty %}
-                                                    {{ _tab_menu|raw }}
-                                                {% endif %}
-                                            </div>
-
-                                            {% if admin is defined and action is defined and action == 'list' and admin.listModes|length > 1 %}
-                                                <div class="nav navbar-right btn-group">
-                                                    {% for mode, settings in admin.listModes %}
-                                                        <a href="{{ admin.generateUrl('list', app.request.query.all|merge({_list_mode: mode})) }}" class="btn btn-default navbar-btn btn-sm{% if admin.getListMode() == mode %} active{% endif %}"><i class="{{ settings.class }}"></i></a>
-                                                    {% endfor %}
-                                                </div>
-                                            {% endif %}
-
-                                            {% block sonata_admin_content_actions_wrappers %}
-                                                {% if _actions|replace({ '<li>': '', '</li>': '' })|trim is not empty %}
-                                                    <ul class="nav navbar-nav navbar-right">
-                                                        {% if _actions|split('</a>')|length > 2 %}
-                                                            <li class="dropdown sonata-actions">
-                                                                <a href="#" class="dropdown-toggle" data-toggle="dropdown">{{ 'link_actions'|trans({}, 'SonataAdminBundle') }} <b class="caret"></b></a>
-                                                                <ul class="dropdown-menu" role="menu">
-                                                                    {{ _actions|raw }}
-                                                                </ul>
-                                                            </li>
-                                                        {% else %}
-                                                            {{ _actions|raw }}
-                                                        {% endif %}
-                                                    </ul>
-                                                {% endif %}
-                                            {% endblock sonata_admin_content_actions_wrappers %}
-
-                                            {% if _list_filters_actions is not empty %}
-                                                {{ _list_filters_actions|raw }}
-                                            {% endif %}
-                                        </div>
-                                    </div>
-                                </nav>
-                            {% endif %}
-                        {% endblock sonata_page_content_nav %}
-                    {% endblock sonata_page_content_header %}
-                </section>
-
-                <section class="content">
-                    {% block sonata_admin_content %}
-
-                        {% block notice %}
-                            {% include 'SonataCoreBundle:FlashMessage:render.html.twig' %}
-                        {% endblock notice %}
-
-                        {% if _preview is not empty %}
-                            <div class="sonata-ba-preview">{{ _preview|raw }}</div>
-                        {% endif %}
-
-                        {% if _content is not empty %}
-                            <div class="sonata-ba-content">{{ _content|raw }}</div>
-                        {% endif %}
-
-                        {% if _show is not empty %}
-                            <div class="sonata-ba-show">{{ _show|raw }}</div>
-                        {% endif %}
-
-                        {% if _form is not empty %}
-                            <div class="sonata-ba-form">{{ _form|raw }}</div>
-                        {% endif %}
-
-                        {% if _list_table is not empty or _list_filters is not empty %}
-                            {% if _list_filters|trim %}
-                                <div class="row">
-                                    {{ _list_filters|raw }}
-                                </div>
-                            {% endif %}
-
-                            <div class="row">
-                                {{ _list_table|raw }}
-                            </div>
-
-                        {% endif %}
-                    {% endblock sonata_admin_content %}
-                </section>
-            {% endblock sonata_page_content %}
-        </div>
 
         {% endblock sonata_wrapper %}
 
 
+         {% block container %}
 
-        <div class="row">
-            <div class="col-sm-3">
-                <div class="xe-widget xe-counter" data-count=".num" data-from="0" data-to="99.9" data-suffix="%" data-duration="2">
-                    <div class="xe-icon">
-                        <i class="linecons-cloud"></i>
-                    </div>
-                    <div class="xe-label">
-                        <strong class="num">0.0%</strong>
-                        <span>Server uptime</span>
-                    </div>
-                </div>
-                <div class="xe-widget xe-counter xe-counter-purple" data-count=".num" data-from="1" data-to="117" data-suffix="k" data-duration="3" data-easing="false">
-                    <div class="xe-icon">
-                        <i class="linecons-user"></i>
-                    </div>
-                    <div class="xe-label">
-                        <strong class="num">1k</strong>
-                        <span>Users Total</span>
-                    </div>
-                </div>
-                <div class="xe-widget xe-counter xe-counter-info" data-count=".num" data-from="1000" data-to="2470" data-duration="4" data-easing="true">
-                    <div class="xe-icon">
-                        <i class="linecons-camera"></i>
-                    </div>
-                    <div class="xe-label">
-                        <strong class="num">1000</strong>
-                        <span>New Daily Photos</span>
-                    </div>
-                </div>
-            </div>
-            <div class="col-sm-6">
-                <div class="chart-item-bg">
-                    <div class="chart-label">
-                        <div class="h3 text-secondary text-bold" data-count="this" data-from="0.00" data-to="14.85" data-suffix="%" data-duration="1">0.00%</div>
-                        <span class="text-medium text-muted">More visitors</span>
-                    </div>
-                    <div id="pageviews-visitors-chart" style="height: 298px;"></div>
-                </div>
-            </div>
-            <div class="col-sm-3">
-                <div class="chart-item-bg">
-                    <div class="chart-label chart-label-small">
-                        <div class="h4 text-purple text-bold" data-count="this" data-from="0.00" data-to="95.8" data-suffix="%" data-duration="1.5">0.00%</div>
-                        <span class="text-small text-upper text-muted">Current Server Uptime</span>
-                    </div>
-                    <div id="server-uptime-chart" style="height: 134px;"></div>
-                </div>
-                <div class="chart-item-bg">
-                    <div class="chart-label chart-label-small">
-                        <div class="h4 text-secondary text-bold" data-count="this" data-from="0.00" data-to="320.45" data-decimal="," data-duration="2">0</div>
-                        <span class="text-small text-upper text-muted">Avg. of Sales</span>
-                    </div>
-                    <div id="sales-avg-chart" style="height: 134px; position: relative;">
-                        <div style="position: absolute; top: 25px; right: 0; left: 40%; bottom: 0"></div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="row">
-            <div class="col-sm-6">
-                <div class="chart-item-bg">
-                    <div id="pageviews-stats" style="height: 320px; padding: 20px 0;"></div>
-                    <div class="chart-entry-view">
-                        <div class="chart-entry-label">
-                            Pageviews
-                        </div>
-                        <div class="chart-entry-value">
-                            <div class="sparkline first-month"></div>
-                        </div>
-                    </div>
-                    <div class="chart-entry-view">
-                        <div class="chart-entry-label">
-                            Visitors
-                        </div>
-                        <div class="chart-entry-value">
-                            <div class="sparkline second-month"></div>
-                        </div>
-                    </div>
-                    <div class="chart-entry-view">
-                        <div class="chart-entry-label">
-                            Converted Sales
-                        </div>
-                        <div class="chart-entry-value">
-                            <div class="sparkline third-month"></div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="col-sm-6">
-                <div class="chart-item-bg">
-                    <div class="chart-label">
-                        <div id="network-mbs-packets" class="h1 text-purple text-bold" data-count="this" data-from="0.00" data-to="21.05" data-suffix="mb/s" data-duration="1">0.00mb/s</div>
-                        <span class="text-small text-muted text-upper">Download Speed</span>
-                    </div>
-                    <div class="chart-right-legend">
-                        <div id="network-realtime-gauge" style="width: 170px; height: 140px"></div>
-                    </div>
-                    <div id="realtime-network-stats" style="height: 320px"></div>
-                </div>
-                <div class="chart-item-bg">
-                    <div class="chart-label">
-                        <div id="network-mbs-packets" class="h1 text-secondary text-bold" data-count="this" data-from="0.00" data-to="67.35" data-suffix="%" data-duration="1.5">0.00%</div>
-                        <span class="text-small text-muted text-upper">CPU Usage</span>
 
-                        <p class="text-medium" style="width: 50%; margin-top: 10px">Sentiments two occasional affronting solicitude travelling and one contrasted. Fortune day out married parties.</p>
-                    </div>
-                    <div id="other-stats" style="min-height: 183px">
-                        <div id="cpu-usage-gauge" style="width: 170px; height: 140px; position: absolute; right: 20px; top: 20px"></div>
-                    </div>
-                </div>
-            </div>
-        </div>
+         {% endblock %}
 
 
 
 
 
-
-
-
-
-
-
-
-
-
+      {% block footersigned %}
         <footer class="main-footer sticky footer-type-1">
             <div class="footer-inner">
                 <div class="footer-text">
@@ -1418,6 +1222,12 @@
                 </div>
             </div>
         </footer>
+   {% endblock %}
+
+
+
+
+
     </div>
 
     {% endblock %}
@@ -1425,6 +1235,7 @@
 
 
     {% block footer %}
+
 
         <div id="chat" class="fixed">
             <div class="chat-inner">

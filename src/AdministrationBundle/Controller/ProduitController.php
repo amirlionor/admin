@@ -15,8 +15,6 @@ use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 class ProduitController extends Controller
 {
     /**
-     * Lists all produit entities.
-     *
      * @Route("/", name="produit_index")
      * @Method("GET")
      */
@@ -26,25 +24,55 @@ class ProduitController extends Controller
 
         $produits = $em->getRepository('AdministrationBundle:Produit')->findAll();
 
-        dump($produits);
-        die;
 
-        return $this->render('produit/index.html.twig', array(
+        return $this->render('AdministrationBundle:Produit:list.html.twig', array(
             'produits' => $produits,
         ));
     }
 
     /**
-     * Finds and displays a produit entity.
-     *
      * @Route("/{id}", name="produit_show")
      * @Method("GET")
      */
     public function showAction(Produit $produit)
     {
 
-        return $this->render('produit/show.html.twig', array(
+        return $this->render('AdministrationBundle:Produit:add.html.twig', array(
             'produit' => $produit,
         ));
     }
+
+
+
+    /**
+     * @Route("/", name="produit_add")
+     * @Method("GET")
+     */
+    public function AddAction()
+    {
+        return $this->render('AdministrationBundle:Produit:add.html.twig');
+    }
+
+    /**
+     * @Route("/", name="produit_remove")
+     * @Method("GET")
+     */
+    public function removeAction()
+    {
+        return $this->render('AdministrationBundle:Produit:list.html.twig');
+    }
+
+
+    /**
+     * @Route("/{id}", name="produit_modifier")
+     * @Method("GET")
+     */
+    public function ModifierAction(Produit $produit)
+    {
+
+        return $this->render('AdministrationBundle:Produit:add.html.twig', array(
+            'produit' => $produit,
+        ));
+    }
+
 }
